@@ -45,7 +45,6 @@ header{
     flex: 1;
 }
 
-
 .sobre img{
     width: 250px;
     height: 350px;
@@ -54,7 +53,6 @@ header{
     float: right;
     margin-left: 20px;
 }
-
 
 .habilidades {
     margin: 20px;
@@ -90,34 +88,6 @@ header{
 .habilidades li{
     margin: 15px;
 }
-
-.contactos img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-}
-.contactos {
-    margin: 20px;
-    text-align: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.058);
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-}
-.contactos ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.contactos li{
-    margin: 20px;
-}
-
 footer{
     text-align: center;
     padding: 2px;
@@ -161,4 +131,49 @@ footer{
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     border-radius: 10px;
+}
+
+.card {
+    border-radius: 15px;
+    margin: 20px;
+    background: rgba(86, 86, 86, 0.516);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.307);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px;
+    gap: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
+.socialContainer {
+    width: 52px;
+    height: 52px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: .3s;
+}
+
+.containerOne:hover {
+    background-color: #d62976;
+    transition-duration: .3s;
+}
+.containerFour:hover {
+    background-color: #128C7E;
+    transition-duration: .3s;
+}
+.socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: .3s;
+}
+.socialSvg {
+    width: 17px;
+}
+.socialSvg path {
+    fill: rgb(255, 255, 255);
+}
+.socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
 }
