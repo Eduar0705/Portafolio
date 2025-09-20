@@ -447,33 +447,149 @@
                     </div>
                 </div>
 
-                <!--<form action="" class="contact__form grid" id="contactForm">
-                    <div class="contact__inputs grid">
+                <form action="" class="contact__form" id="contactForm">
+                    <div class="contact__inputs">
                         <div class="contact__content">
                             <label for="name" class="contact__label">Nombre</label>
-                            <input type="text" id="name" class="contact__input" required>
+                            <input type="text" id="name" class="contact__input">
+                            <div class="error-message" id="nameError">Por favor ingresa tu nombre</div>
                         </div>
                         <div class="contact__content">
                             <label for="email" class="contact__label">Email</label>
-                            <input type="email" id="email" class="contact__input" required>
+                            <input type="email" id="email" class="contact__input">
+                            <div class="error-message" id="emailError">Por favor ingresa un email válido</div>
                         </div>
                     </div>
+                    
                     <div class="contact__content">
                         <label for="subject" class="contact__label">Asunto</label>
-                        <input type="text" id="subject" class="contact__input" required>
+                        <input type="text" id="subject" class="contact__input">
+                        <div class="error-message" id="subjectError">Por favor ingresa un asunto</div>
                     </div>
+                    
                     <div class="contact__content">
                         <label for="message" class="contact__label">Mensaje</label>
-                        <textarea id="message" cols="0" rows="7" class="contact__input" required></textarea>
+                        <textarea id="message" cols="0" rows="7" class="contact__input"></textarea>
+                        <div class="error-message" id="messageError">Por favor ingresa tu mensaje</div>
                     </div>
 
                     <div>
-                        <button type="submit" class="button button--flex">
-                            Enviar Mensaje
-                            <i class="fas fa-paper-plane button__icon"></i>
+                        <button type="submit" class="button button--flex" id="submitButton">
+                            Enviar por WhatsApp
+                            <i class="fab fa-whatsapp button__icon"></i>
                         </button>
                     </div>
-                </form>-->
+                    
+                    <div class="form-feedback" id="formFeedback"></div>
+                </form>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const contactForm = document.getElementById('contactForm');
+                        const submitButton = document.getElementById('submitButton');
+                        const formFeedback = document.getElementById('formFeedback');
+                        
+                        // Elementos de error
+                        const nameError = document.getElementById('nameError');
+                        const emailError = document.getElementById('emailError');
+                        const subjectError = document.getElementById('subjectError');
+                        const messageError = document.getElementById('messageError');
+                        
+                        // Expresión regular para validar email
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        
+                        // Función para validar campos
+                        function validateField(field, errorElement, validationFn) {
+                            const value = field.value.trim();
+                            
+                            if (!value) {
+                                field.classList.add('error');
+                                field.classList.remove('success');
+                                errorElement.style.display = 'block';
+                                return false;
+                            }
+                            
+                            if (validationFn && !validationFn(value)) {
+                                field.classList.add('error');
+                                field.classList.remove('success');
+                                errorElement.style.display = 'block';
+                                return false;
+                            }
+                            
+                            field.classList.remove('error');
+                            field.classList.add('success');
+                            errorElement.style.display = 'none';
+                            return true;
+                        }
+                        
+                        // Validar en tiempo real
+                        document.getElementById('name').addEventListener('input', function() {
+                            validateField(this, nameError);
+                        });
+                        
+                        document.getElementById('email').addEventListener('input', function() {
+                            validateField(this, emailError, function(value) {
+                                return emailRegex.test(value);
+                            });
+                        });
+                        
+                        document.getElementById('subject').addEventListener('input', function() {
+                            validateField(this, subjectError);
+                        });
+                        
+                        document.getElementById('message').addEventListener('input', function() {
+                            validateField(this, messageError);
+                        });
+                        
+                        // Envío del formulario
+                        contactForm.addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            
+                            // Validar todos los campos
+                            const isNameValid = validateField(document.getElementById('name'), nameError);
+                            const isEmailValid = validateField(document.getElementById('email'), emailError, function(value) {
+                                return emailRegex.test(value);
+                            });
+                            const isSubjectValid = validateField(document.getElementById('subject'), subjectError);
+                            const isMessageValid = validateField(document.getElementById('message'), messageError);
+                            
+                            if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
+                                formFeedback.textContent = 'Por favor completa todos los campos correctamente.';
+                                formFeedback.classList.add('error');
+                                formFeedback.classList.remove('success');
+                                return;
+                            }
+                            
+                            // Mostrar estado de carga
+                            submitButton.classList.add('loading');
+                            
+                            // Simular un pequeño retraso para mejor UX
+                            setTimeout(function() {
+                                const name = document.getElementById('name').value.trim();
+                                const email = document.getElementById('email').value.trim();
+                                const subject = document.getElementById('subject').value.trim();
+                                const message = document.getElementById('message').value.trim();
+
+                                const phone = '584145003573';
+                                const text = `Nombre: ${name}%0AEmail: ${email}%0AAsunto: ${subject}%0AMensaje: ${message}`;
+                                const url = `https://wa.me/${phone}?text=${text}`;
+                                
+                                // Restaurar botón
+                                submitButton.classList.remove('loading');
+                                
+                                // Mostrar mensaje de éxito
+                                formFeedback.textContent = '¡Formulario completado con éxito! Redirigiendo a WhatsApp...';
+                                formFeedback.classList.add('success');
+                                formFeedback.classList.remove('error');
+                                
+                                // Redirigir después de un breve momento para que el usuario vea el mensaje
+                                setTimeout(function() {
+                                    window.open(url, '_blank');
+                                }, 1500);
+                            }, 1000);
+                        });
+                    });
+                </script>
             </div>
         </section>
     </main>
