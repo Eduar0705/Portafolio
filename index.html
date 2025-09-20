@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduar Suarez - Desarrollador Full Stack</title>
-    <link rel="stylesheet" href="./style.css">
+    <meta name="description" content="Eduar Suárez - Desarrollador Full Stack especializado en JavaScript, Node.js, PHP y C++. Portfolio con proyectos web modernos y aplicaciones funcionales.">
+    <meta name="keywords" content="desarrollador web, full stack, JavaScript, Node.js, PHP, portfolio, programador">
+    <meta name="author" content="Eduar Suárez">
+    <meta property="og:title" content="Eduar Suárez - Desarrollador Full Stack">
+    <meta property="og:description" content="Portfolio profesional con proyectos web modernos y aplicaciones funcionales">
+    <meta property="og:image" content="./img/Personal.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tudominio.com">
+    <title>Eduar Suárez - Desarrollador Full Stack | Portfolio Profesional</title>
+    <link rel="preload" href="./style.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" rel="stylesheet">
 </head>
 <body>
@@ -23,41 +34,43 @@
                 <ul class="nav__list">
                     <li class="nav__item">
                         <a href="#home" class="nav__link active-link">
-                            <i class="fas fa-home nav__icon"></i>
+                            <i class="fas fa-home nav__icon" aria-hidden="true"></i>
                             <span>Inicio</span>
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#about" class="nav__link">
-                            <i class="fas fa-user nav__icon"></i>
+                            <i class="fas fa-user nav__icon" aria-hidden="true"></i>
                             <span>Sobre Mí</span>
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#skills" class="nav__link">
-                            <i class="fas fa-code nav__icon"></i>
+                            <i class="fas fa-code nav__icon" aria-hidden="true"></i>
                             <span>Habilidades</span>
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#projects" class="nav__link">
-                            <i class="fas fa-briefcase nav__icon"></i>
+                            <i class="fas fa-briefcase nav__icon" aria-hidden="true"></i>
                             <span>Proyectos</span>
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#contact" class="nav__link">
-                            <i class="fas fa-envelope nav__icon"></i>
+                            <i class="fas fa-envelope nav__icon" aria-hidden="true"></i>
                             <span>Contacto</span>
                         </a>
                     </li>
                 </ul>
-                <i class="fas fa-times nav__close" id="nav-close"></i>
+                <button class="nav__close" id="nav-close" aria-label="Cerrar menú">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
             </div>
             
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú de navegación">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
         </nav>
     </header>
 
@@ -68,14 +81,14 @@
             <div class="home__container container">
                 <div class="home__content">
                     <div class="home__social">
-                        <a href="https://github.com/Eduar0705" target="_blank" class="home__social-icon">
-                            <i class="fab fa-github"></i>
+                        <a href="https://github.com/Eduar0705" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="Ver perfil de GitHub">
+                            <i class="fab fa-github" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.instagram.com/eduar0705/" target="_blank" class="home__social-icon">
-                            <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/eduar0705/" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="Ver perfil de Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="https://wa.me/+584145003573" target="_blank" class="home__social-icon">
-                            <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/+584145003573" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="Contactar por WhatsApp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
                         </a>
                     </div>
 
@@ -89,10 +102,10 @@
                         </p>
                         <div class="home__buttons">
                             <a href="#contact" class="button button--flex">
-                                Contáctame <i class="fas fa-paper-plane button__icon"></i>
+                                Contáctame <i class="fas fa-paper-plane button__icon" aria-hidden="true"></i>
                             </a>
                             <a href="./img/Currículum Eduar.pdf" download class="button button--outline button--flex">
-                                <i class="fas fa-download button__icon"></i>
+                                <i class="fas fa-download button__icon" aria-hidden="true"></i>
                                 Descargar CV
                             </a>
                         </div>
@@ -108,7 +121,12 @@
 
             <div class="about__container container grid">
                 <div class="about__img-container">
-                    <img src="./img/Personal.jpg" alt="Eduar Suarez" class="about__img">
+                    <img src="./img/Personal.jpg" 
+                            alt="Foto profesional de Eduar Suárez, desarrollador full stack sonriendo en ambiente de oficina" 
+                            class="about__img"
+                            loading="lazy"
+                            width="200"
+                            height="auto">
                 </div>
 
                 <div class="about__data">
@@ -139,7 +157,7 @@
 
                     <div class="about__buttons">
                         <a href="./img/Currículum Eduar.pdf" download class="button button--flex">
-                            Descargar CV <i class="fas fa-download button__icon"></i>
+                            Descargar CV <i class="fas fa-download button__icon" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -155,12 +173,12 @@
                 <div class="skills__content-wrapper">
                     <!-- Frontend Skills -->
                     <div class="skills__content skills__open">
-                        <div class="skills__header">
-                            <i class="fas fa-code skills__icon"></i>
+                        <div class="skills__header" role="button" tabindex="0" aria-expanded="true">
+                            <i class="fas fa-code skills__icon" aria-hidden="true"></i>
                             <div>
                                 <h1 class="skills__title">Desarrollo Frontend</h1>
                             </div>
-                            <i class="fas fa-angle-down skills__arrow"></i>
+                            <i class="fas fa-angle-down skills__arrow" aria-hidden="true"></i>
                         </div>
 
                         <div class="skills__list grid">
@@ -170,7 +188,7 @@
                                     <span class="skills__number">95%</span>
                                 </div>
                                 <div class="skills__bar">
-                                    <span class="skills__percentage skills__html"></span>
+                                    <span class="skills__percentage skills__html" style="width: 95%" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="HTML5 95%"></span>
                                 </div>
                             </div>
 
@@ -180,7 +198,7 @@
                                     <span class="skills__number">90%</span>
                                 </div>
                                 <div class="skills__bar">
-                                    <span class="skills__percentage skills__css"></span>
+                                    <span class="skills__percentage skills__css" style="width: 90%" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="CSS3 90%"></span>
                                 </div>
                             </div>
 
@@ -190,7 +208,7 @@
                                     <span class="skills__number">80%</span>
                                 </div>
                                 <div class="skills__bar">
-                                    <span class="skills__percentage skills__js"></span>
+                                    <span class="skills__percentage skills__js" style="width: 80%" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript 80%"></span>
                                 </div>
                             </div>
                         </div>
@@ -198,12 +216,12 @@
 
                     <!-- Backend Skills -->
                     <div class="skills__content skills__close">
-                        <div class="skills__header">
-                            <i class="fas fa-server skills__icon"></i>
+                        <div class="skills__header" role="button" tabindex="0" aria-expanded="false">
+                            <i class="fas fa-server skills__icon" aria-hidden="true"></i>
                             <div>
                                 <h1 class="skills__title">Desarrollo Backend</h1>
                             </div>
-                            <i class="fas fa-angle-down skills__arrow"></i>
+                            <i class="fas fa-angle-down skills__arrow" aria-hidden="true"></i>
                         </div>
 
                         <div class="skills__list grid">
@@ -213,7 +231,7 @@
                                     <span class="skills__number">75%</span>
                                 </div>
                                 <div class="skills__bar">
-                                    <span class="skills__percentage skills__node"></span>
+                                    <span class="skills__percentage skills__node" style="width: 75%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Node.js 75%"></span>
                                 </div>
                             </div>
 
@@ -223,7 +241,7 @@
                                     <span class="skills__number">60%</span>
                                 </div>
                                 <div class="skills__bar">
-                                    <span class="skills__percentage skills__php"></span>
+                                    <span class="skills__percentage skills__php" style="width: 60%" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="PHP 60%"></span>
                                 </div>
                             </div>
 
@@ -233,7 +251,7 @@
                                     <span class="skills__number">70%</span>
                                 </div>
                                 <div class="skills__bar">
-                                    <span class="skills__percentage skills__express"></span>
+                                    <span class="skills__percentage skills__express" style="width: 70%" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Express.js 70%"></span>
                                 </div>
                             </div>
 
@@ -243,7 +261,7 @@
                                     <span class="skills__number">65%</span>
                                 </div>
                                 <div class="skills__bar">
-                                    <span class="skills__percentage skills__mysql"></span>
+                                    <span class="skills__percentage skills__mysql" style="width: 65%" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="MySQL 65%"></span>
                                 </div>
                             </div>
                         </div>
@@ -251,12 +269,12 @@
 
                     <!-- Programming Languages -->
                     <div class="skills__content skills__close">
-                        <div class="skills__header">
-                            <i class="fas fa-laptop-code skills__icon"></i>
+                        <div class="skills__header" role="button" tabindex="0" aria-expanded="false">
+                            <i class="fas fa-laptop-code skills__icon" aria-hidden="true"></i>
                             <div>
                                 <h1 class="skills__title">Lenguajes de Programación</h1>
                             </div>
-                            <i class="fas fa-angle-down skills__arrow"></i>
+                            <i class="fas fa-angle-down skills__arrow" aria-hidden="true"></i>
                         </div>
 
                         <div class="skills__list grid">
@@ -266,7 +284,7 @@
                                     <span class="skills__number">85%</span>
                                 </div>
                                 <div class="skills__bar">
-                                    <span class="skills__percentage skills__cpp"></span>
+                                    <span class="skills__percentage skills__cpp" style="width: 85%" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="C++ 85%"></span>
                                 </div>
                             </div>
 
@@ -276,7 +294,7 @@
                                     <span class="skills__number">80%</span>
                                 </div>
                                 <div class="skills__bar">
-                                    <span class="skills__percentage skills__csharp"></span>
+                                    <span class="skills__percentage skills__csharp" style="width: 80%" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="C# 80%"></span>
                                 </div>
                             </div>
                         </div>
@@ -288,43 +306,43 @@
                     <h3 class="skills__tech-title">Tecnologías que manejo</h3>
                     <div class="skills__tech-grid">
                         <div class="skills__tech-item">
-                            <i class="devicon-html5-plain colored"></i>
+                            <i class="devicon-html5-plain colored" aria-hidden="true"></i>
                             <span>HTML5</span>
                         </div>
                         <div class="skills__tech-item">
-                            <i class="devicon-css3-plain colored"></i>
+                            <i class="devicon-css3-plain colored" aria-hidden="true"></i>
                             <span>CSS3</span>
                         </div>
                         <div class="skills__tech-item">
-                            <i class="devicon-javascript-plain colored"></i>
+                            <i class="devicon-javascript-plain colored" aria-hidden="true"></i>
                             <span>JavaScript</span>
                         </div>
                         <div class="skills__tech-item">
-                            <i class="devicon-nodejs-plain colored"></i>
+                            <i class="devicon-nodejs-plain colored" aria-hidden="true"></i>
                             <span>Node.js</span>
                         </div>
                         <div class="skills__tech-item">
-                            <i class="devicon-php-plain colored"></i>
+                            <i class="devicon-php-plain colored" aria-hidden="true"></i>
                             <span>PHP</span>
                         </div>
                         <div class="skills__tech-item">
-                            <i class="devicon-cplusplus-plain colored"></i>
+                            <i class="devicon-cplusplus-plain colored" aria-hidden="true"></i>
                             <span>C++</span>
                         </div>
                         <div class="skills__tech-item">
-                            <i class="devicon-csharp-plain colored"></i>
+                            <i class="devicon-csharp-plain colored" aria-hidden="true"></i>
                             <span>C#</span>
                         </div>
                         <div class="skills__tech-item">
-                            <i class="devicon-mysql-plain colored"></i>
+                            <i class="devicon-mysql-plain colored" aria-hidden="true"></i>
                             <span>MySQL</span>
                         </div>
                         <div class="skills__tech-item">
-                            <i class="devicon-git-plain colored"></i>
+                            <i class="devicon-git-plain colored" aria-hidden="true"></i>
                             <span>Git</span>
                         </div>
                         <div class="skills__tech-item">
-                            <i class="devicon-github-original"></i>
+                            <i class="devicon-github-original" aria-hidden="true"></i>
                             <span>GitHub</span>
                         </div>
                     </div>
@@ -338,78 +356,87 @@
             <span class="section__subtitle">Trabajos más recientes</span>
 
             <div class="projects__container container">
-                <div class="projects__filters">
-                    <span class="projects__item active-project" data-filter="all">Todos</span>
-                    <span class="projects__item" data-filter=".web">Web</span>
-                    <span class="projects__item" data-filter=".app">Aplicaciones</span>
-                    <span class="projects__item" data-filter=".game">Juegos</span>
+                <div class="projects__filters" role="tablist" aria-label="Filtros de proyectos">
+                    <button class="projects__item active-project" data-filter="all" role="tab" aria-selected="true">Todos</button>
+                    <button class="projects__item" data-filter=".web" role="tab" aria-selected="false">Web</button>
+                    <button class="projects__item" data-filter=".app" role="tab" aria-selected="false">Aplicaciones</button>
+                    <button class="projects__item" data-filter=".game" role="tab" aria-selected="false">Juegos</button>
                 </div>
 
-                <div class="projects__content grid">
-                    <div class="projects__card mix web">
+                <div class="projects__content grid" role="tabpanel">
+                    <article class="projects__card mix web">
                         <div class="projects__img-container">
-                            <img src="./img/Juego_Ingles.png" alt="Juego de Inglés" class="projects__img">
+                            <img src="./img/Juego_Ingles.png" 
+                                    alt="Captura del juego educativo de inglés mostrando interfaz interactiva para aprender vocabulario" 
+                                    class="projects__img"
+                                    loading="lazy">
                         </div>
                         <div class="projects__modal">
                             <div>
                                 <span class="projects__subtitle">Web</span>
                                 <h3 class="projects__title">Juego de Inglés II</h3>
-                                <p class="projects__description">Juego educativo interactivo para aprender inglés</p>
+                                <p class="projects__description">Juego educativo interactivo para aprender inglés con interfaz moderna y ejercicios dinámicos</p>
                                 <div class="projects__buttons">
-                                    <a href="https://iujojuegoingles.netlify.app/" target="_blank" class="projects__button button button--small">
-                                        <i class="fas fa-link button__icon"></i>
+                                    <a href="https://iujojuegoingles.netlify.app/" target="_blank" rel="noopener noreferrer" class="projects__button button button--small" aria-label="Ver proyecto en vivo">
+                                        <i class="fas fa-link button__icon" aria-hidden="true"></i>
                                     </a>
-                                    <a href="https://github.com/Eduar0705/proyectoinglesjuegoiujo" target="_blank" class="projects__button button button--small">
-                                        <i class="fab fa-github button__icon"></i>
+                                    <a href="https://github.com/Eduar0705/proyectoinglesjuegoiujo" target="_blank" rel="noopener noreferrer" class="projects__button button button--small" aria-label="Ver código fuente en GitHub">
+                                        <i class="fab fa-github button__icon" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="projects__card mix app">
+                    <article class="projects__card mix app">
                         <div class="projects__img-container">
-                            <img src="./img/Auditx.png" alt="AuditX" class="projects__img">
+                            <img src="./img/Auditx.png" 
+                                    alt="Captura de la aplicación AuditX mostrando interfaz de gestión de auditorías con tablas y formularios" 
+                                    class="projects__img"
+                                    loading="lazy">
                         </div>
                         <div class="projects__modal">
                             <div>
                                 <span class="projects__subtitle">Aplicación</span>
                                 <h3 class="projects__title">Sistema de Auditorías</h3>
-                                <p class="projects__description">Aplicación de escritorio para gestión de auditorías</p>
+                                <p class="projects__description">Aplicación de escritorio para gestión integral de auditorías desarrollada en C# con base de datos</p>
                                 <div class="projects__buttons">
-                                    <a href="https://github.com/Eduar0705/ProyectoIUJOcsharp" target="_blank" class="projects__button button button--small">
-                                        <i class="fab fa-github button__icon"></i>
+                                    <a href="https://github.com/Eduar0705/ProyectoIUJOcsharp" target="_blank" rel="noopener noreferrer" class="projects__button button button--small" aria-label="Ver código fuente en GitHub">
+                                        <i class="fab fa-github button__icon" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="projects__card mix web">
+                    <article class="projects__card mix web">
                         <div class="projects__img-container">
-                            <img src="./img/ECO.png" alt="EcoGeo" class="projects__img">
+                            <img src="./img/ECO.png" 
+                                    alt="Captura de la plataforma EcoGeo mostrando contenido educativo sobre medio ambiente y geografía" 
+                                    class="projects__img"
+                                    loading="lazy">
                         </div>
                         <div class="projects__modal">
                             <div>
                                 <span class="projects__subtitle">Web</span>
                                 <h3 class="projects__title">GeoEducación</h3>
-                                <p class="projects__description">Plataforma web de educación ambiental</p>
+                                <p class="projects__description">Plataforma web de educación ambiental con contenido interactivo sobre geografía y ecología</p>
                                 <div class="projects__buttons">
-                                    <a href="https://ecogeo.netlify.app/" target="_blank" class="projects__button button button--small">
-                                        <i class="fas fa-link button__icon"></i>
+                                    <a href="https://ecogeo.netlify.app/" target="_blank" rel="noopener noreferrer" class="projects__button button button--small" aria-label="Ver proyecto en vivo">
+                                        <i class="fas fa-link button__icon" aria-hidden="true"></i>
                                     </a>
-                                    <a href="https://github.com/Eduar0705/Examen-HTML-CSS-1" target="_blank" class="projects__button button button--small">
-                                        <i class="fab fa-github button__icon"></i>
+                                    <a href="https://github.com/Eduar0705/Examen-HTML-CSS-1" target="_blank" rel="noopener noreferrer" class="projects__button button button--small" aria-label="Ver código fuente en GitHub">
+                                        <i class="fab fa-github button__icon" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </div>
 
                 <div class="projects__github">
-                    <a href="https://github.com/Eduar0705" target="_blank" class="button button--flex">
-                        Ver más proyectos <i class="fab fa-github button__icon"></i>
+                    <a href="https://github.com/Eduar0705" target="_blank" rel="noopener noreferrer" class="button button--flex">
+                        Ver más proyectos <i class="fab fa-github button__icon" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -423,7 +450,7 @@
             <div class="contact__container container grid">
                 <div class="contact__info">
                     <div class="contact__information">
-                        <i class="fas fa-phone contact__icon"></i>
+                        <i class="fas fa-phone contact__icon" aria-hidden="true"></i>
                         <div>
                             <h3 class="contact__title">Llámame</h3>
                             <span class="contact__subtitle">+58 414-5003573</span>
@@ -431,7 +458,7 @@
                     </div>
 
                     <div class="contact__information">
-                        <i class="fas fa-envelope contact__icon"></i>
+                        <i class="fas fa-envelope contact__icon" aria-hidden="true"></i>
                         <div>
                             <h3 class="contact__title">Email</h3>
                             <span class="contact__subtitle">eduarjosesuarezgraterol@gmail.com</span>
@@ -439,7 +466,7 @@
                     </div>
 
                     <div class="contact__information">
-                        <i class="fas fa-map-marker-alt contact__icon"></i>
+                        <i class="fas fa-map-marker-alt contact__icon" aria-hidden="true"></i>
                         <div>
                             <h3 class="contact__title">Ubicación</h3>
                             <span class="contact__subtitle">Barquisimeto, Venezuela</span>
@@ -447,149 +474,41 @@
                     </div>
                 </div>
 
-                <form action="" class="contact__form" id="contactForm">
+                <form class="contact__form" id="contactForm" novalidate>
                     <div class="contact__inputs">
                         <div class="contact__content">
                             <label for="name" class="contact__label">Nombre</label>
-                            <input type="text" id="name" class="contact__input">
-                            <div class="error-message" id="nameError">Por favor ingresa tu nombre</div>
+                            <input type="text" id="name" name="name" class="contact__input" required aria-describedby="nameError">
+                            <div class="error-message" id="nameError" role="alert">Por favor ingresa tu nombre</div>
                         </div>
                         <div class="contact__content">
                             <label for="email" class="contact__label">Email</label>
-                            <input type="email" id="email" class="contact__input">
-                            <div class="error-message" id="emailError">Por favor ingresa un email válido</div>
+                            <input type="email" id="email" name="email" class="contact__input" required aria-describedby="emailError">
+                            <div class="error-message" id="emailError" role="alert">Por favor ingresa un email válido</div>
                         </div>
                     </div>
                     
                     <div class="contact__content">
                         <label for="subject" class="contact__label">Asunto</label>
-                        <input type="text" id="subject" class="contact__input">
-                        <div class="error-message" id="subjectError">Por favor ingresa un asunto</div>
+                        <input type="text" id="subject" name="subject" class="contact__input" required aria-describedby="subjectError">
+                        <div class="error-message" id="subjectError" role="alert">Por favor ingresa un asunto</div>
                     </div>
                     
                     <div class="contact__content">
                         <label for="message" class="contact__label">Mensaje</label>
-                        <textarea id="message" cols="0" rows="7" class="contact__input"></textarea>
-                        <div class="error-message" id="messageError">Por favor ingresa tu mensaje</div>
+                        <textarea id="message" name="message" cols="0" rows="7" class="contact__input" required aria-describedby="messageError"></textarea>
+                        <div class="error-message" id="messageError" role="alert">Por favor ingresa tu mensaje</div>
                     </div>
 
                     <div>
                         <button type="submit" class="button button--flex" id="submitButton">
-                            Enviar por WhatsApp
-                            <i class="fab fa-whatsapp button__icon"></i>
+                            <span class="button__text">Enviar por WhatsApp</span>
+                            <i class="fab fa-whatsapp button__icon" aria-hidden="true"></i>
                         </button>
                     </div>
                     
-                    <div class="form-feedback" id="formFeedback"></div>
+                    <div class="form-feedback" id="formFeedback" role="alert" aria-live="polite"></div>
                 </form>
-
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const contactForm = document.getElementById('contactForm');
-                        const submitButton = document.getElementById('submitButton');
-                        const formFeedback = document.getElementById('formFeedback');
-                        
-                        // Elementos de error
-                        const nameError = document.getElementById('nameError');
-                        const emailError = document.getElementById('emailError');
-                        const subjectError = document.getElementById('subjectError');
-                        const messageError = document.getElementById('messageError');
-                        
-                        // Expresión regular para validar email
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        
-                        // Función para validar campos
-                        function validateField(field, errorElement, validationFn) {
-                            const value = field.value.trim();
-                            
-                            if (!value) {
-                                field.classList.add('error');
-                                field.classList.remove('success');
-                                errorElement.style.display = 'block';
-                                return false;
-                            }
-                            
-                            if (validationFn && !validationFn(value)) {
-                                field.classList.add('error');
-                                field.classList.remove('success');
-                                errorElement.style.display = 'block';
-                                return false;
-                            }
-                            
-                            field.classList.remove('error');
-                            field.classList.add('success');
-                            errorElement.style.display = 'none';
-                            return true;
-                        }
-                        
-                        // Validar en tiempo real
-                        document.getElementById('name').addEventListener('input', function() {
-                            validateField(this, nameError);
-                        });
-                        
-                        document.getElementById('email').addEventListener('input', function() {
-                            validateField(this, emailError, function(value) {
-                                return emailRegex.test(value);
-                            });
-                        });
-                        
-                        document.getElementById('subject').addEventListener('input', function() {
-                            validateField(this, subjectError);
-                        });
-                        
-                        document.getElementById('message').addEventListener('input', function() {
-                            validateField(this, messageError);
-                        });
-                        
-                        // Envío del formulario
-                        contactForm.addEventListener('submit', function(e) {
-                            e.preventDefault();
-                            
-                            // Validar todos los campos
-                            const isNameValid = validateField(document.getElementById('name'), nameError);
-                            const isEmailValid = validateField(document.getElementById('email'), emailError, function(value) {
-                                return emailRegex.test(value);
-                            });
-                            const isSubjectValid = validateField(document.getElementById('subject'), subjectError);
-                            const isMessageValid = validateField(document.getElementById('message'), messageError);
-                            
-                            if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
-                                formFeedback.textContent = 'Por favor completa todos los campos correctamente.';
-                                formFeedback.classList.add('error');
-                                formFeedback.classList.remove('success');
-                                return;
-                            }
-                            
-                            // Mostrar estado de carga
-                            submitButton.classList.add('loading');
-                            
-                            // Simular un pequeño retraso para mejor UX
-                            setTimeout(function() {
-                                const name = document.getElementById('name').value.trim();
-                                const email = document.getElementById('email').value.trim();
-                                const subject = document.getElementById('subject').value.trim();
-                                const message = document.getElementById('message').value.trim();
-
-                                const phone = '584145003573';
-                                const text = `Nombre: ${name}%0AEmail: ${email}%0AAsunto: ${subject}%0AMensaje: ${message}`;
-                                const url = `https://wa.me/${phone}?text=${text}`;
-                                
-                                // Restaurar botón
-                                submitButton.classList.remove('loading');
-                                
-                                // Mostrar mensaje de éxito
-                                formFeedback.textContent = '¡Formulario completado con éxito! Redirigiendo a WhatsApp...';
-                                formFeedback.classList.add('success');
-                                formFeedback.classList.remove('error');
-                                
-                                // Redirigir después de un breve momento para que el usuario vea el mensaje
-                                setTimeout(function() {
-                                    window.open(url, '_blank');
-                                }, 1500);
-                            }, 1000);
-                        });
-                    });
-                </script>
             </div>
         </section>
     </main>
@@ -616,27 +535,34 @@
                 </ul>
 
                 <div class="footer__socials">
-                    <a href="https://github.com/Eduar0705" target="_blank" class="footer__social">
-                        <i class="fab fa-github"></i>
+                    <a href="https://github.com/Eduar0705" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.instagram.com/eduar0705/" target="_blank" class="footer__social">
-                        <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/eduar0705/" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
                     </a>
-                    <a href="https://wa.me/+584145003573" target="_blank" class="footer__social">
-                        <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/+584145003573" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
 
-            <p class="footer__copy">&#169; Eduar Suarez. Todos los derechos reservados</p>
+            <p class="footer__copy">&copy; <span id="currentYear"></span> Eduar Suarez. Todos los derechos reservados</p>
         </div>
     </footer>
 
     <!-- Scroll Top -->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="fas fa-arrow-up scrollup__icon"></i>
+    <a href="#home" class="scrollup" id="scroll-up" aria-label="Ir al inicio">
+        <i class="fas fa-arrow-up scrollup__icon" aria-hidden="true"></i>
     </a>
 
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-spinner"></div>
+        <p>Cargando...</p>
+    </div>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
