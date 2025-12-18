@@ -27,7 +27,7 @@ const debounce = (func, wait) => {
 
 const throttle = (func, wait) => {
   let inThrottle;
-  return function(...args) {
+  return function (...args) {
     if (!inThrottle) {
       func.apply(this, args);
       inThrottle = true;
@@ -49,7 +49,10 @@ class Navigation {
   setupEventListeners() {
     // Menu toggle
     if (navToggle) {
-      navToggle.addEventListener("click", () => this.showMenu());
+      navToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        this.toggleMenu();
+      });
     }
 
     if (navClose) {
@@ -58,7 +61,18 @@ class Navigation {
 
     // Close menu when clicking on links
     navLinks.forEach(link => {
-      link.addEventListener("click", () => this.hideMenu());
+      link.addEventListener("click", () => {
+        this.hideMenu();
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (navMenu && navMenu.classList.contains("show-menu")) {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+          this.hideMenu();
+        }
+      }
     });
 
     // Keyboard navigation
@@ -66,7 +80,7 @@ class Navigation {
       navToggle.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          this.showMenu();
+          this.toggleMenu();
         }
       });
     }
@@ -79,16 +93,39 @@ class Navigation {
         }
       });
     }
+
+    // Close menu on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navMenu.classList.contains("show-menu")) {
+        this.hideMenu();
+      }
+    });
+  }
+
+  toggleMenu() {
+    if (navMenu.classList.contains("show-menu")) {
+      this.hideMenu();
+    } else {
+      this.showMenu();
+    }
   }
 
   showMenu() {
-    navMenu.classList.add("show-menu");
-    navToggle.setAttribute("aria-expanded", "true");
+    if (navMenu) {
+      navMenu.classList.add("show-menu");
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "true");
+      }
+    }
   }
 
   hideMenu() {
-    navMenu.classList.remove("show-menu");
-    navToggle.setAttribute("aria-expanded", "false");
+    if (navMenu) {
+      navMenu.classList.remove("show-menu");
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    }
   }
 }
 
@@ -157,13 +194,13 @@ class ProjectsFilter {
       filter.classList.remove("active-project");
       filter.setAttribute("aria-selected", "false");
     });
-    
+
     clickedFilter.classList.add("active-project");
     clickedFilter.setAttribute("aria-selected", "true");
 
     // Filter projects
     const filterValue = clickedFilter.getAttribute("data-filter");
-    
+
     projectsCards.forEach(card => {
       if (filterValue === "all") {
         card.style.display = "block";
@@ -189,7 +226,7 @@ class FormValidator {
 
   init() {
     if (!this.form) return;
-    
+
     this.setupEventListeners();
     this.setupRealTimeValidation();
   }
@@ -207,15 +244,15 @@ class FormValidator {
     if (nameInput) {
       nameInput.addEventListener("input", () => this.validateField(nameInput, "nameError"));
     }
-    
+
     if (emailInput) {
       emailInput.addEventListener("input", () => this.validateField(emailInput, "emailError", this.validateEmail.bind(this)));
     }
-    
+
     if (subjectInput) {
       subjectInput.addEventListener("input", () => this.validateField(subjectInput, "subjectError"));
     }
-    
+
     if (messageInput) {
       messageInput.addEventListener("input", () => this.validateField(messageInput, "messageError"));
     }
@@ -224,17 +261,17 @@ class FormValidator {
   validateField(field, errorId, customValidator = null) {
     const value = field.value.trim();
     const errorElement = document.getElementById(errorId);
-    
+
     if (!value) {
       this.setFieldError(field, errorElement, true);
       return false;
     }
-    
+
     if (customValidator && !customValidator(value)) {
       this.setFieldError(field, errorElement, true);
       return false;
     }
-    
+
     this.setFieldError(field, errorElement, false);
     return true;
   }
@@ -257,34 +294,34 @@ class FormValidator {
 
   handleSubmit(e) {
     e.preventDefault();
-    
+
     const formData = new FormData(this.form);
     const data = Object.fromEntries(formData);
-    
+
     // Validate all fields
     const isNameValid = this.validateField(document.getElementById("name"), "nameError");
     const isEmailValid = this.validateField(document.getElementById("email"), "emailError", this.validateEmail.bind(this));
     const isSubjectValid = this.validateField(document.getElementById("subject"), "subjectError");
     const isMessageValid = this.validateField(document.getElementById("message"), "messageError");
-    
+
     const formFeedback = document.getElementById("formFeedback");
-    
+
     if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
       this.showFeedback(formFeedback, "Por favor completa todos los campos correctamente.", "error");
       return;
     }
-    
+
     this.submitForm(data, formFeedback);
   }
 
   submitForm(data, feedbackElement) {
     const submitButton = document.getElementById("submitButton");
     const buttonText = submitButton.querySelector(".button__text") || submitButton;
-    
+
     // Show loading state
     submitButton.classList.add("loading");
     buttonText.textContent = "Enviando";
-    
+
     // Simulate API call
     setTimeout(() => {
       const phone = "584145003573";
@@ -292,14 +329,14 @@ class FormValidator {
         `Nombre: ${data.name}\nEmail: ${data.email}\nAsunto: ${data.subject}\nMensaje: ${data.message}`
       );
       const url = `https://wa.me/${phone}?text=${text}`;
-      
+
       // Reset button
       submitButton.classList.remove("loading");
       buttonText.textContent = "Enviar por WhatsApp";
-      
+
       // Show success message
       this.showFeedback(feedbackElement, "¡Formulario completado con éxito! Redirigiendo a WhatsApp...", "success");
-      
+
       // Redirect after delay
       setTimeout(() => {
         window.open(url, "_blank", "noopener,noreferrer");
@@ -313,7 +350,7 @@ class FormValidator {
     element.textContent = message;
     element.className = `form-feedback ${type}`;
     element.style.display = "block";
-    
+
     if (type === "success") {
       setTimeout(() => {
         element.style.display = "none";
@@ -324,11 +361,11 @@ class FormValidator {
   clearValidationStates() {
     const inputs = this.form.querySelectorAll(".contact__input");
     const errors = this.form.querySelectorAll(".error-message");
-    
+
     inputs.forEach(input => {
       input.classList.remove("error", "success");
     });
-    
+
     errors.forEach(error => {
       error.style.display = "none";
     });
@@ -442,13 +479,13 @@ class ScrollAnimations {
 
   animateSkillBars() {
     const skillBars = document.querySelectorAll(".skills__percentage");
-    
+
     skillBars.forEach((bar, index) => {
       setTimeout(() => {
         const width = bar.style.width;
         bar.style.width = "0%";
         bar.style.transition = "width 2s ease-in-out";
-        
+
         setTimeout(() => {
           bar.style.width = width;
         }, 100);
@@ -589,10 +626,10 @@ class SmoothScrolling {
       anchor.addEventListener("click", (e) => {
         e.preventDefault();
         const target = document.querySelector(anchor.getAttribute("href"));
-        
+
         if (target) {
           const offsetTop = target.offsetTop - (header ? header.offsetHeight : 0);
-          
+
           window.scrollTo({
             top: offsetTop,
             behavior: "smooth"
@@ -651,7 +688,7 @@ class PerformanceOptimizer {
   setupIntersectionObserver() {
     // Lazy load images that are not in viewport
     const images = document.querySelectorAll('img[loading="lazy"]');
-    
+
     if ('IntersectionObserver' in window) {
       const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
