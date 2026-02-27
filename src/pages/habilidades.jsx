@@ -1,4 +1,4 @@
-import Navbar from '../components/navar';
+import Navbar from '../components/Navar';
 import Footer from '../components/Footer';
 import '../../public/css/style.css';
 
