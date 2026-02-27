@@ -173,3 +173,142 @@ html {
         font-size: 1.8rem;
     }
 }
+
+
+
+/* --- Contenedor Principal --- */
+.main-container {
+    background-color: #121212; /* Aseguramos que el fondo sea el oscuro profundo */
+    overflow-x: hidden;
+}
+
+/* --- Sección Detalle de Proyecto --- */
+.project-detail {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Espaciado para que no se peguen las tarjetas */
+.project-detail:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.project-detail__card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-detail__card:hover {
+    border-color: rgba(0, 209, 255, 0.4);
+}
+
+.project-detail__title {
+    font-size: 2.2rem;
+    color: #00d1ff;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* --- Manejo de Imágenes --- */
+.project-detail__image-wrapper {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Separación si hay dos imágenes como en Invilara */
+}
+
+.project-detail__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+.project-detail__card:hover .project-detail__image {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+/* --- Textos e Información --- */
+.project-detail__info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-detail__description {
+    color: #c5c5c5;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* Estilo para los enlaces de "Ver Proyecto" */
+.project-detail__info a {
+    align-self: center;
+    color: #121212;
+    background: #00d1ff;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 209, 255, 0.3);
+    margin: 10px 0;
+}
+
+.project-detail__info a:hover {
+    background: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Badge de Tecnologías */
+.project-detail__badge {
+    background: rgba(255, 255, 255, 0.05);
+    color: #00d1ff;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    border-left: 4px solid #00d1ff;
+    margin-top: 15px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .project-detail {
+        padding: 40px 15px;
+    }
+
+    .project-detail__card {
+        padding: 25px;
+    }
+
+    .project-detail__title {
+        font-size: 1.6rem;
+    }
+
+    .project-detail__description {
+        font-size: 0.95rem;
+    }
+}
