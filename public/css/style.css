@@ -312,3 +312,112 @@ html {
         font-size: 0.95rem;
     }
 }
+
+
+/* --- Contenedor del Formulario --- */
+.form-container {
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.form-container h2 {
+    font-size: 2.5rem;
+    color: #00d1ff; /* Tu color de acento */
+    margin-bottom: 2rem;
+    font-weight: 800;
+}
+
+/* --- Estilo de la Tarjeta del Formulario --- */
+.contact-form {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Grupos de Entrada --- */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #00d1ff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.form-group input, 
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 12px 15px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al hacer clic en los inputs */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00d1ff;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 209, 255, 0.2);
+}
+
+/* --- Botón de Envío --- */
+.submit-btn {
+    width: 100%;
+    background: #00d1ff;
+    color: #121212;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    background: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 209, 255, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(-1px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 60px 15px;
+    }
+
+    .contact-form {
+        padding: 25px;
+    }
+
+    .form-container h2 {
+        font-size: 2rem;
+    }
+}
