@@ -1,7 +1,7 @@
 import Navbar from '../components/Navar';
 import Footer from '../components/Footer';
 import '../../public/css/style.css'; 
-import Auditx from '../../public/img/auditx.png';
+import Auditx from '../../public/img/Auditx.png';
 import JuegoIE from '../../public/img/Juego_Ingles.png';
 import SGR from '../../public/img/rubricas.png';
 import Invilara from '../../public/img/invilara.png';
