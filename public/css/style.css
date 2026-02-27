@@ -1,0 +1,175 @@
+/* Reset global y box-sizing */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Suaviza las fuentes en todos los navegadores */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Configuración del cuerpo */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #121212; /* Un fondo oscuro profundo, mejor que el negro puro */
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scrolls horizontales accidentales */
+    min-height: 100vh;
+}
+
+/* Mejora opcional para el scroll */
+html {
+    scroll-behavior: smooth;
+}
+/* --- Estilos para la sección Sobre Mi --- */
+
+.Sobremi {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+/* Título con un pequeño detalle de acento */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #00d1ff; /* Un tono cyan para resaltar sobre el oscuro */
+    position: relative;
+}
+
+/* Imagen con estilo de estudio/profesional */
+.Sobremi img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px; /* Bordes redondeados modernos */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.Sobremi img:hover {
+    transform: scale(1.03);
+    border-color: #00d1ff;
+}
+
+/* Contenido de texto */
+.about__content {
+    font-size: 1.15rem;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc; /* Un gris claro para mejor legibilidad */
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 4px solid #00d1ff;
+}
+
+/* --- Responsive (Para móviles y tablets) --- */
+
+@media (min-width: 768px) {
+    .Sobremi {
+        flex-direction: row; /* En pantallas grandes, imagen al lado del texto */
+        text-align: left;
+        justify-content: center;
+    }
+
+    .Sobremi img {
+        width: 300px;
+        height: 400px; /* Estilo retrato vertical */
+    }
+
+    .section-title {
+        grid-column: 1 / -1; /* Si usaras grid, pero aquí lo manejamos con el flujo */
+        width: 100%;
+        text-align: left;
+    }
+
+    .about__content {
+        text-align: left;
+    }
+}
+/* --- Sección de Habilidades --- */
+
+.habilidades__section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills__technologies {
+    width: 100%;
+}
+
+.skills__tech-title {
+    font-size: 2.2rem;
+    color: #00d1ff; /* Usando tu color de acento */
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+/* Configuración de la cuadrícula */
+.skills__tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Cada tarjeta de tecnología */
+.skills__tech-item {
+    background: rgba(255, 255, 255, 0.05); /* Efecto cristal */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 1rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skills__tech-item:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #00d1ff;
+    box-shadow: 0 10px 25px rgba(0, 209, 255, 0.2);
+}
+
+/* Iconos de Devicon */
+.skills__tech-item i {
+    font-size: 3.5rem; /* Tamaño grande para que luzcan */
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+}
+
+.skills__tech-item span {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #eee;
+}
+
+/* Ajuste para móviles pequeños */
+@media (max-width: 480px) {
+    .skills__tech-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
+        gap: 1rem;
+    }
+    
+    .skills__tech-title {
+        font-size: 1.8rem;
+    }
+}
