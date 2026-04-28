@@ -1,79 +1,137 @@
-import Navbar from '../components/Navar';
-import Footer from '../components/Footer';
-import '../../public/css/style.css';
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiReact,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiPhp,
+  SiMysql,
+  SiGit,
+  SiGithub,
+  SiVite,
+} from 'react-icons/si';
+import { FaCode, FaServer, FaDatabase, FaTools } from 'react-icons/fa';
+import { TbBrandCSharp, TbBrandCpp } from 'react-icons/tb';
+import Navbar from '../components/Navbar.jsx';
+import Footer from '../components/Footer.jsx';
+
+const groups = [
+  {
+    title: 'Frontend',
+    Icon: FaCode,
+    description:
+      'Construyo interfaces accesibles, responsivas y rápidas. Cuido la experiencia de usuario tanto como el código.',
+    items: [
+      { name: 'HTML5', Icon: SiHtml5, color: '#E34F26' },
+      { name: 'CSS3', Icon: SiCss3, color: '#1572B6' },
+      { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E' },
+      { name: 'React', Icon: SiReact, color: '#61DAFB' },
+      { name: 'Tailwind', Icon: SiTailwindcss, color: '#38BDF8' },
+      { name: 'Vite', Icon: SiVite, color: '#A855F7' },
+    ],
+  },
+  {
+    title: 'Backend',
+    Icon: FaServer,
+    description:
+      'APIs REST, autenticación, validación y arquitectura sencilla de mantener.',
+    items: [
+      { name: 'Node.js', Icon: SiNodedotjs, color: '#5FA04E' },
+      { name: 'Express', Icon: SiExpress, color: '#FFFFFF' },
+      { name: 'PHP', Icon: SiPhp, color: '#777BB4' },
+      { name: 'C#', Icon: TbBrandCSharp, color: '#9B4F96' },
+      { name: 'C++', Icon: TbBrandCpp, color: '#00599C' },
+    ],
+  },
+  {
+    title: 'Bases de datos',
+    Icon: FaDatabase,
+    description: 'Modelado relacional, consultas eficientes y diseño normalizado.',
+    items: [{ name: 'MySQL', Icon: SiMysql, color: '#4479A1' }],
+  },
+  {
+    title: 'Herramientas',
+    Icon: FaTools,
+    description: 'Lo que uso día a día para colaborar, versionar y desplegar.',
+    items: [
+      { name: 'Git', Icon: SiGit, color: '#F05032' },
+      { name: 'GitHub', Icon: SiGithub, color: '#FFFFFF' },
+    ],
+  },
+];
+
+const focuses = [
+  'Código limpio, leíble y comentado solo cuando hace falta.',
+  'Validación tanto en frontend como backend.',
+  'Diseño responsive como punto de partida, no extra.',
+  'Despliegue real (Render, Netlify) y manejo básico de servidores.',
+];
 
 export default function Habilidades() {
-    return (
-        <main>
-            <Navbar />
-            <section className='habilidades__section'>
-                <div className="descripcion">
-                    <h2 className="section-title">Habilidades</h2>
-                    <p className="descripcion__content">
-                        Soy un desarrollador Full Stack con habilidades en una amplia gama de tecnologías.
-                        Mi experiencia abarca tanto el desarrollo frontend como backend, lo que me permite crear aplicaciones web completas y funcionales.
-                        En el frontend, tengo experiencia en HTML5, CSS3 y JavaScript, lo que me permite diseñar interfaces de usuario atractivas y responsivas. Además, estoy familiarizado con frameworks como React, que me permiten construir aplicaciones web dinámicas y eficientes.
-                        En el backend, tengo experiencia en Node.js y Express.js, lo que me permite desarrollar APIs robustas y escalables. También tengo conocimientos en PHP. Además, tengo experiencia en bases de datos como MySQL, lo que me permite diseñar y gestionar eficientemente la capa de datos de las aplicaciones.
-                        Además de mis habilidades técnicas, también tengo experiencia en el uso de herramientas de control de versiones como Git y plataformas como GitHub, lo que me permite colaborar eficazmente con otros desarrolladores y gestionar el código de manera eficiente.
-                    </p>
-                </div>
-            </section>
-            <section className='habilidades__section'>
-                <div className="skills__technologies">
-                    <h3 className="skills__tech-title">Tecnologías que manejo</h3>
-                    <div className="skills__tech-grid">
-                        <div className="skills__tech-item">
-                            <i className="devicon-html5-plain colored" aria-hidden="true"></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-css3-plain colored" aria-hidden="true"></i>
-                            <span>CSS3</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-javascript-plain colored" aria-hidden="true"></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-nodejs-plain colored" aria-hidden="true"></i>
-                            <span>Node.js</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-express-original colored" aria-hidden="true"></i>
-                            <span>Express.js</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-react-original colored" aria-hidden="true"></i>
-                            <span>React</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-php-plain colored" aria-hidden="true"></i>
-                            <span>PHP</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-cplusplus-plain colored" aria-hidden="true"></i>
-                            <span>C++</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-csharp-plain colored" aria-hidden="true"></i>
-                            <span>C#</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-mysql-plain colored" aria-hidden="true"></i>
-                            <span>MySQL</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-git-plain colored" aria-hidden="true"></i>
-                            <span>Git</span>
-                        </div>
-                        <div className="skills__tech-item">
-                            <i className="devicon-github-original" aria-hidden="true"></i>
-                            <span>GitHub</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <Footer />
-        </main>
-    );
+  return (
+    <>
+      <Navbar />
+      <main className="bg-[#0e0e10] text-white">
+        <section className="max-w-6xl mx-auto px-5 md:px-8 pt-16 md:pt-20 pb-12">
+          <p className="text-xs uppercase tracking-[0.2em] text-primary/80">Habilidades</p>
+          <h1 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight">
+            Lo que sé hacer y cómo lo abordo
+          </h1>
+          <p className="mt-5 max-w-3xl text-white/70 leading-relaxed text-[1.02rem]">
+            No me considero experto en todo lo que ves abajo, pero sí defiendo cada cosa que pongo
+            aquí: las he usado en proyectos reales, sé sus limitaciones y puedo aprender lo que
+            falte si el proyecto lo pide.
+          </p>
+        </section>
+
+        <section className="max-w-6xl mx-auto px-5 md:px-8 pb-12 grid gap-6 md:grid-cols-2">
+          {groups.map(({ title, Icon, description, items }) => (
+            <article
+              key={title}
+              className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 hover:border-primary/30 transition"
+            >
+              <header className="flex items-center gap-3">
+                <span className="grid place-items-center w-10 h-10 rounded-lg bg-primary/15 text-primary">
+                  <Icon size={18} aria-hidden="true" />
+                </span>
+                <h2 className="text-xl font-bold">{title}</h2>
+              </header>
+              <p className="mt-3 text-sm text-white/65 leading-relaxed">{description}</p>
+              <ul className="mt-6 grid grid-cols-3 gap-3">
+                {items.map(({ name, Icon: TechIcon, color }) => (
+                  <li
+                    key={name}
+                    className="flex flex-col items-center gap-2 rounded-lg border border-white/10 bg-black/20 py-4 px-2 text-center"
+                  >
+                    <TechIcon size={28} style={{ color }} aria-hidden="true" />
+                    <span className="text-[0.8rem] text-white/80">{name}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </section>
+
+        <section className="max-w-6xl mx-auto px-5 md:px-8 pb-24">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-10">
+            <h2 className="text-xl md:text-2xl font-bold">Cómo me gusta trabajar</h2>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {focuses.map((f) => (
+                <li key={f} className="flex gap-3 text-white/75">
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 inline-block w-1.5 h-1.5 rounded-full bg-primary shrink-0"
+                  />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
 }

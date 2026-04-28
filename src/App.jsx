@@ -1,26 +1,31 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
-// 1. Importamos las páginas que acabamos de crear
-import Index from './pages/index';
-import Habilidades from './pages/habilidades';
-import Proyectos from './pages/proyectos';
-import Contactos from './pages/contactos';
+import Index from './pages/index.jsx';
+import Habilidades from './pages/habilidades.jsx';
+import Proyectos from './pages/proyectos.jsx';
+import Contactos from './pages/contactos.jsx';
+import NotFound from './pages/notfound.jsx';
 
-function App() {
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [pathname]);
+  return null;
+}
+
+export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
-
-        {/* Rutas*/}
-        <Route path="/index" element={<Index />} />
-        <Route path="/" element={<Navigate to="/index" replace />} />
-        <Route path='/habilidades' element={<Habilidades />} />
-        <Route path='/proyectos' element={<Proyectos />} />
-        <Route path='/contacto' element={<Contactos />} />
-
+        <Route path="/" element={<Index />} />
+        <Route path="/habilidades" element={<Habilidades />} />
+        <Route path="/proyectos" element={<Proyectos />} />
+        <Route path="/contacto" element={<Contactos />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
 }
-
-export default App;

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -sS -o /dev/null -w 'yo.webp:%{http_code} cv:%{http_code} sitemap:%{http_code} robots:%{http_code}\\\\n' http://localhost:5174/img/yo.webp http://localhost:5174/CV-Eduar-Suarez.pdf http://localhost:5174/sitemap.xml http://localhost:5174/robots.txt)",
+      "Bash(curl -sS -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5174/img/yo.webp)",
+      "Bash(curl -sS -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5174/CV-Eduar-Suarez.pdf)",
+      "Bash(curl -sS -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5174/sitemap.xml)",
+      "Bash(curl -sS -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5174/robots.txt)",
+      "Bash(pkill -f \"vite\")"
+    ]
+  }
+}
