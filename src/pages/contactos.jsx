@@ -174,7 +174,7 @@ export default function Contactos() {
                   <FaGithub size={18} aria-hidden="true" />
                 </a>
                 <a
-                  href="https://www.instagram.com/eduar07sg/"
+                  href="https://www.instagram.com/nexgen_logic/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
