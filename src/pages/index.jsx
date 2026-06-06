@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaArrowRight,
@@ -5,6 +6,8 @@ import {
   FaGithub,
   FaMapMarkerAlt,
   FaCircle,
+  FaEye,
+  FaTimes,
 } from 'react-icons/fa';
 import {
   SiReact,
@@ -32,7 +35,12 @@ const stats = [
   { value: '12+', label: 'Tecnologías' },
 ];
 
+const CV_URL = '/CV_Eduar_Suarez.pdf';
+const CV_FILENAME = 'CV_Eduar_Suarez.pdf';
+
 export default function Index() {
+  const [cvOpen, setCvOpen] = useState(false);
+
   return (
     <>
       <Navbar />
@@ -73,14 +81,14 @@ export default function Index() {
                   Ver proyectos
                   <FaArrowRight aria-hidden="true" />
                 </Link>
-                <a
-                  href="/CV-Eduar-Suarez.pdf"
-                  download
+                <button
+                  type="button"
+                  onClick={() => setCvOpen(true)}
                   className="inline-flex items-center gap-2 border border-white/15 text-white px-5 py-3 rounded-lg hover:border-primary hover:text-primary transition"
                 >
-                  <FaDownload aria-hidden="true" />
-                  Descargar CV
-                </a>
+                  <FaEye aria-hidden="true" />
+                  Ver CV
+                </button>
                 <a
                   href="https://github.com/Eduar0705"
                   target="_blank"
@@ -203,6 +211,49 @@ export default function Index() {
           </div>
         </section>
       </main>
+
+      {cvOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Vista previa del CV"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          onClick={() => setCvOpen(false)}
+        >
+          <div
+            className="relative flex h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0e0e10] shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4">
+              <h2 className="text-base font-semibold text-white">Vista previa del CV</h2>
+              <div className="flex items-center gap-2">
+                <a
+                  href={CV_URL}
+                  download={CV_FILENAME}
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-[#0e0e10] transition hover:brightness-110"
+                >
+                  <FaDownload aria-hidden="true" />
+                  Descargar
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setCvOpen(false)}
+                  aria-label="Cerrar vista previa"
+                  className="inline-flex items-center justify-center rounded-lg border border-white/15 p-2 text-white/70 transition hover:border-primary hover:text-primary"
+                >
+                  <FaTimes aria-hidden="true" />
+                </button>
+              </div>
+            </div>
+            <iframe
+              src={`${CV_URL}#toolbar=0`}
+              title="Vista previa del CV"
+              className="h-full w-full flex-1 bg-white"
+            />
+          </div>
+        </div>
+      )}
+
       <Footer />
     </>
   );
